@@ -1,0 +1,3 @@
+ping = Used for internet diagnostics and network troubleshooting. It checks the connectivity between the host and a remote server by sending ICMP echo requests.
+example - ping www.google.com
+

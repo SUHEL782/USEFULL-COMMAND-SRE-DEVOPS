@@ -25,3 +25,6 @@ mkdir student{1..10} = Creates multiple directories named student1 to student10.
 touch = Creates an empty file or updates the timestamp of an existing file.
 
 touch books{1..10} = Creates multiple files named books1 to books10.
+
+rm = Removes files or directories.
+
