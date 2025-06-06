@@ -1,10 +1,27 @@
-1. pwd  = its show the current working directory 
-2. ls = its show the available file
-3. uname = show the name of kernal
-4. uname -r = show the version of kernal
-5. cd = chnage directory 
-6. clear = its used for clean screen 
-7. whoami = its show the current login user name
-8. history - show previouse command 
-9. show the current date
-10.
+pwd = Displays the current working directory.
+
+ls = Lists the files and directories in the current directory.
+
+uname = Displays the system's kernel name.
+
+uname -r = Displays the kernel version.
+
+cd = Changes the directory.
+
+clear = Clears the terminal screen.
+
+whoami = Displays the current logged-in username.
+
+history = Shows previously executed commands.
+
+date = Displays the current system date and time.
+
+mkdir = Creates a new directory. (Note: your original had a typo: makdir → mkdir)
+
+mkdir -p /dev/test/prod = Creates a directory path, including parent directories if they do not exist.
+
+mkdir student{1..10} = Creates multiple directories named student1 to student10. (Correct brace expansion syntax for Bash)
+
+touch = Creates an empty file or updates the timestamp of an existing file.
+
+touch books{1..10} = Creates multiple files named books1 to books10.
