@@ -1,0 +1,10 @@
+1. pwd  = its show the current working directory 
+2. ls = its show the available file
+3. uname = show the name of kernal
+4. uname -r = show the version of kernal
+5. cd = chnage directory 
+6. clear = its used for clean screen 
+7. whoami = its show the current login user name
+8. history - show previouse command 
+9. show the current date
+10.
