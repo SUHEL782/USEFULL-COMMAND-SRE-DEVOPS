@@ -1,3 +1,86 @@
-ping = Used for internet diagnostics and network troubleshooting. It checks the connectivity between the host and a remote server by sending ICMP echo requests.
-example - ping www.google.com
+ping = test connectivity (ICMP echo)
+ping www.google.com → check if internet reachable
+
+traceroute = trace network path + spot where packets drop or delay
+traceroute 8.8.8.8
+
+nslookup = quick DNS resolve check
+nslookup example.com
+
+dig = detailed DNS query, good for debugging DNS issues
+dig example.com ANY
+
+ip a = show all interfaces and IPs, confirm interface status
+ip link set eth0 up/down = enable or disable interface
+
+ip r = show routing table, confirm routes exist or find missing routes
+
+ss -tuln / netstat -tuln = check open and listening ports, troubleshoot port conflicts
+ss -plnt = show which process is using a port
+
+curl -I https://yourapp.com = check HTTP headers, server response, SSL problems
+
+telnet yourhost 80 = test if port is open and accepting connections
+
+mtr = combines ping + traceroute, live network path and latency
+mtr yourhost
+
+ethtool eth0 = check NIC stats: link status, speed, errors, reset if needed
+
+iptables -L -v -n = check firewall rules and packet counts, troubleshoot blocked traffic
+
+tcpdump -i eth0 port 80 = capture packets on port 80, analyze network traffic
+
+iftop -i eth0 = live bandwidth usage by connection, find bandwidth hogs
+
+nmap -sT -p 1-65535 yourhost = full port scan, troubleshoot open ports and firewall
+
+arp -a = show local MAC address cache, troubleshoot LAN issues
+
+route -n = older style routing table display
+
+watch -n 2 ip a = refresh interface status every 2 seconds, watch changes live
+
+systemctl restart network or ifdown eth0 && ifup eth0 = restart network service or interface if stuck
+
+More useful network commands
+nmcli dev status = show NetworkManager managed devices and status
+nmcli connection show = list saved network connections
+nmcli connection up <name> = bring up a connection
+nmcli connection down <name> = bring down a connection
+
+ping -c 5 8.8.8.8 = ping with count, only 5 pings
+
+ip neigh show = show neighbor table (ARP cache)
+
+ss -s = summary of socket statistics
+
+curl -v http://yourapp.com = verbose curl output for debugging
+
+iptables-save > /etc/iptables/rules.v4 = save current firewall rules (Debian/Ubuntu)
+
+iptables-restore < /etc/iptables/rules.v4 = restore firewall rules
+
+Advanced / automation / best practice
+Use Ansible or Terraform to push and manage network configs and firewall rules across many servers, avoid manual mistakes
+
+Automate network health checks running scripts with ping, curl, ss, log results, alert on failure
+
+Use Prometheus + Alertmanager to monitor network metrics: packet loss, interface status, latency, open ports
+
+For deep packet analysis, capture traffic with tcpdump, then analyze in Wireshark
+
+Export network metrics using node_exporter or custom exporters for dashboards and alerts
+
+Harden security: configure firewalls properly, enable fail2ban, limit exposed ports to minimum
+
+Document network setup, keep configs and scripts in git repo for version control and audit
+
+Use iptables-save / iptables-restore or firewalld zones for consistent firewall management
+
+Regularly review logs: /var/log/syslog, /var/log/messages, and journalctl for network-related errors
+
+Set up logrotate for network logs to prevent disk full issues
+
+Monitor network interfaces with ifplugd or similar tools to auto-restart interfaces on link down
 

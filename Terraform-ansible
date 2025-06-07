@@ -1,0 +1,140 @@
+ansible --version → check ansible version
+
+ansible all -m ping -i inventory → test connection to all hosts
+
+ansible-playbook playbook.yml → run playbook
+
+ansible-playbook playbook.yml --check → dry run, see what will change
+
+ansible-playbook playbook.yml -vvv → verbose output for debugging
+
+ansible -m setup hostname → gather facts about host
+
+Inventory & Variables
+Use inventory file to group hosts
+
+Use variables (vars, group_vars, host_vars) to customize
+
+Use --limit to run on specific hosts:
+ansible-playbook playbook.yml -l hostname
+
+Playbooks & Modules
+Use common modules: shell, command, copy, template, service, user, yum, apt
+
+Write idempotent tasks (safe to run multiple times)
+
+Use handlers to restart services on changes
+
+Use tags to run parts of playbook selectively
+
+Use register to save output of tasks
+
+Use conditionals (when) to control task execution
+
+Roles & Reusability
+Split big playbooks into roles for modularity
+
+Use ansible-galaxy to install community roles
+
+Roles have tasks, handlers, templates, vars, files, defaults
+
+Use include and import for reusing tasks
+
+Advanced Features
+Use ansible vault to encrypt sensitive data
+
+Use dynamic inventory (cloud providers, scripts)
+
+Use loops and complex variables for automation
+
+Use callbacks and plugins for custom output and behavior
+
+Use Ansible Tower/AWX for web UI, scheduling, RBAC
+
+Troubleshooting
+ansible-playbook playbook.yml -vvv for detailed errors
+
+Check ssh connection manually
+
+Use --syntax-check before run
+
+Clear facts cache if needed
+
+Check target machine logs for failed tasks
+
+Terraform — Basic to Advanced
+Basics
+terraform version → check terraform version
+
+terraform init → initialize directory (download providers)
+
+terraform plan → preview changes
+
+terraform apply → create/update infra
+
+terraform destroy → delete infra
+
+terraform fmt → format files
+
+terraform validate → check syntax
+
+Configuration
+Use .tf files to define resources (aws_instance, aws_s3_bucket, etc)
+
+Use variables for inputs (variable block)
+
+Use outputs to get resource info (output block)
+
+Use locals for reusable values
+
+Use terraform.tfvars or env vars to pass variables
+
+State Management
+Terraform keeps state in .tfstate file
+
+Use remote state backend (S3, Terraform Cloud) for team use
+
+Use terraform state commands to inspect/change state
+
+Use terraform refresh to sync state with real infra
+
+Modules & Reusability
+Use modules to group resources
+
+Use public modules from Terraform Registry
+
+Create your own modules for reusable infra parts
+
+Use versioning on modules for stability
+
+Workspaces & Environments
+Use workspaces to manage multiple envs (dev, prod)
+
+Switch workspace: terraform workspace select name
+
+Create workspace: terraform workspace new name
+
+Advanced Features
+Use provisioners (remote-exec, local-exec) for post-creation scripts
+
+Use count and for_each for resource loops
+
+Use depends_on to control resource creation order
+
+Use dynamic blocks for complex config
+
+Use data sources to reference existing infra
+
+Troubleshooting
+Read error messages carefully
+
+Use terraform validate and terraform plan first
+
+Check provider config (keys, region, versions)
+
+Use TF_LOG=DEBUG terraform apply for detailed logs
+
+Inspect and fix .tfstate conflicts
+
+Keep terraform files modular and clean
+

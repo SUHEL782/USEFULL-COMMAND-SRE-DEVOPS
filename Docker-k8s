@@ -1,0 +1,71 @@
+Docker troubleshooting
+
+docker ps -a → list all containers + status
+
+docker inspect container → check container info + health
+
+docker logs -f container → follow logs live
+
+docker stats → live CPU/mem usage
+
+docker system prune -af → clean unused containers/images/volumes
+
+docker volume prune → remove unused volumes
+
+docker network ls → list networks
+
+docker network inspect bridge → check network details
+
+docker exec -it container /bin/sh → get shell inside container
+
+use restart policy --restart unless-stopped to auto restart containers
+
+Kubernetes troubleshooting
+
+kubectl get nodes -o wide → list nodes + status + IP
+
+kubectl get pods -A → list all pods in all namespaces
+
+kubectl describe pod pod-name -n ns → detailed pod info + events
+
+kubectl logs pod-name -n ns → pod logs
+
+kubectl top nodes → node CPU/mem usage
+
+kubectl top pods -n ns → pod CPU/mem usage
+
+kubectl rollout status deployment/deploy-name -n ns → rollout status
+
+kubectl rollout undo deployment/deploy-name -n ns → rollback
+
+kubectl exec -it pod-name -n ns -- /bin/sh → get shell inside pod
+
+kubectl port-forward svc/service-name 8080:80 -n ns → port forward
+
+kubectl delete pod pod-name -n ns → delete pod (for cleanup)
+
+kubectl get configmaps -n ns → list configmaps
+
+kubectl describe secret secret-name -n ns → check secrets
+
+kubectl get events -n ns --sort-by=.metadata.creationTimestamp → see recent events
+
+Automation & monitoring
+
+use CI/CD (jenkins, github actions) for build, test, deploy
+
+automate docker builds & push to registry (dockerhub, ECR)
+
+use terraform/ansible for infra as code
+
+monitor cluster with prometheus + grafana
+
+set alerts for pod restarts, cpu/mem spikes, disk pressure
+
+centralize logs with elk/fluentd/loki
+
+run security scans (trivy for docker, kube-bench for k8s)
+
+secure cluster with rbac + network policies
+
+backup configs & persistent volum

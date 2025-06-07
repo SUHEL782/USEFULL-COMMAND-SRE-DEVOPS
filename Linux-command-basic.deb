@@ -1,30 +1,131 @@
-pwd = Displays the current working directory.
+hostname → show system hostname
 
-ls = Lists the files and directories in the current directory.
+uname -r → kernel version
 
-uname = Displays the system's kernel name.
+cat /etc/os-release → linux distro info
 
-uname -r = Displays the kernel version.
+lsb_release -a → distro full info
 
-cd = Changes the directory.
+uptime → system running time + load average
 
-clear = Clears the terminal screen.
+who / w → who is logged in
 
-whoami = Displays the current logged-in username.
+env → show environment variables
 
-history = Shows previously executed commands.
+echo $PATH → check PATH variable
 
-date = Displays the current system date and time.
+⚙️ Health & resource check
+top / htop → live process & resource monitor
 
-mkdir = Creates a new directory. (Note: your original had a typo: makdir → mkdir)
+vmstat 1 → CPU, memory, IO stats every 1 sec
 
-mkdir -p /dev/test/prod = Creates a directory path, including parent directories if they do not exist.
+free -h → memory usage in human-readable
 
-mkdir student{1..10} = Creates multiple directories named student1 to student10. (Correct brace expansion syntax for Bash)
+df -h → disk usage human-readable
 
-touch = Creates an empty file or updates the timestamp of an existing file.
+du -sh * → folder sizes in current dir
 
-touch books{1..10} = Creates multiple files named books1 to books10.
+sar -u 1 3 → CPU usage (sysstat package needed)
 
-rm = Removes files or directories.
+iostat -xz 1 → detailed disk IO stats (iostat needed)
+
+systemctl list-units --failed → check failed services
+
+🌐 Networking check
+ip a → show IP addresses & interfaces
+
+ip r → show routing table
+
+ping 8.8.8.8 → test network connectivity
+
+traceroute google.com → check network path + delays
+
+netstat -tuln → show open ports
+
+ss -tuln → faster way to check listening ports
+
+curl -I site.com → fetch HTTP headers from site
+
+telnet host port → test if port is open
+
+dig domain.com → DNS query
+
+nslookup domain.com → DNS lookup
+
+mtr google.com → combined ping + traceroute for network check
+
+ethtool eth0 → get NIC info and stats
+
+💽 Disk & filesystem check
+lsblk → list block devices (disks)
+
+blkid → disk UUID and type
+
+mount → list mounted filesystems
+
+df -Th → disk type + usage
+
+tune2fs -l /dev/sda1 → ext4 filesystem info
+
+fsck /dev/sda1 → filesystem check and repair
+
+lsof +D /path → list processes using files in folder
+
+🛠️ Log check
+journalctl -xe → show system errors / critical logs
+
+journalctl -u ssh → ssh service logs
+
+tail -f /var/log/syslog → live log (Debian/Ubuntu)
+
+tail -f /var/log/messages → live log (RHEL/CentOS)
+
+less /var/log/auth.log → authentication and sudo logs
+
+grep error /var/log/syslog → find errors in logs
+
+🔐 Security basics
+sudo ufw status → check firewall status
+
+sudo ufw allow 22 → allow SSH through firewall
+
+fail2ban-client status → check fail2ban status
+
+chkrootkit → scan for rootkits
+
+rkhunter --check → rootkit scanner
+
+sudo find / -perm -4000 → find all suid files
+
+passwd -l user → lock user account
+
+getfacl file → check file ACL permissions
+
+ls -la /etc/shadow → check shadow file permissions (must be root only)
+
+🤖 Jobs & automation
+crontab -e → edit user cron jobs
+
+systemctl list-timers → list active system timers
+
+watch -n 2 command → run command every 2 seconds
+
+nohup cmd & → run command in background ignoring hangup
+
+tmux / screen → terminal multiplexers to keep sessions alive
+
+🧠 Tips & tricks
+!! → run last command again
+
+!cat → run last command starting with cat
+
+CTRL + R → reverse search in command history
+
+df -h | grep -v tmpfs → disk usage excluding tmpfs
+
+du -sh * | sort -hr → list biggest directories first
+
+netstat -tulpen | grep 80 → find who is using port 80
+
+grep -r 'text' . → find text recursively in current folder
 

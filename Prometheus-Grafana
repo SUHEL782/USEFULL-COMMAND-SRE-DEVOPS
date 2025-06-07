@@ -1,0 +1,68 @@
+Prometheus basics & troubleshooting
+prometheus --version → check version
+
+Prometheus config file: prometheus.yml → main config for scrape jobs
+
+Start Prometheus: prometheus --config.file=prometheus.yml
+
+Check targets: http://localhost:9090/targets → see if scrape targets are UP
+
+Query metrics: use Prometheus UI → http://localhost:9090/graph
+
+Basic query: up → shows if targets are reachable (1=up, 0=down)
+
+Use rate(metric_name[5m]) for per-second rate over last 5 minutes
+
+Check rules and alerts config for errors in logs
+
+Troubleshoot missing metrics:
+
+check scrape configs & endpoints
+
+verify exporters running on targets (node_exporter, blackbox_exporter, etc)
+
+Restart Prometheus after config changes
+
+Check Prometheus logs for scrape errors
+
+Use promtool check config prometheus.yml to validate config
+
+Grafana basics & troubleshooting
+Grafana start: usually runs on http://localhost:3000
+
+Default login: admin/admin (change on first login)
+
+Add data source: choose Prometheus, set URL (e.g. http://localhost:9090)
+
+Create dashboard → add panels → write Prometheus queries
+
+Use built-in templates or import dashboards from Grafana website
+
+Troubleshoot dashboard no data:
+
+check data source connection
+
+check Prometheus target status
+
+check query syntax
+
+Use alerting in Grafana to notify on metric thresholds
+
+Check Grafana logs if UI not working or errors
+
+Prometheus + Grafana best practices for SRE/DevOps
+Use node_exporter on all servers for system metrics (CPU, mem, disk, network)
+
+Use blackbox_exporter for endpoint monitoring (HTTP, ICMP ping, TCP)
+
+Use alertmanager with Prometheus for alert routing & silencing
+
+Use recording rules to precompute expensive queries
+
+Use Grafana variables for dynamic dashboards
+
+Automate dashboard & alert deployment with Grafana API or config files
+
+Secure Grafana with proper auth & https
+
+Backup Prometheus data and Grafana configs regularly

@@ -1,0 +1,132 @@
+Basic Git commands
+git --version → check git version
+
+git config --global user.name "name" → set username
+
+git config --global user.email "email@example.com" → set email
+
+git init → create new git repo
+
+git clone repo_url → clone repo
+
+git status → check changed files
+
+git add file → stage file
+
+git add . → stage all changes
+
+git commit -m "message" → commit staged changes
+
+git push origin branch → push changes to remote
+
+git pull origin branch → pull latest changes
+
+git branch → list branches
+
+git checkout branch → switch branch
+
+git checkout -b new_branch → create and switch to new branch
+
+git merge branch → merge branch into current
+
+Advanced Git commands
+git log → see commit history
+
+git log --oneline --graph --all → compact visual log
+
+git diff → show unstaged changes
+
+git diff --staged → show staged changes
+
+git reset file → unstage file
+
+git reset --hard commit_hash → reset working dir to commit (careful!)
+
+git revert commit_hash → undo a commit by making a new commit
+
+git stash → save changes temporarily
+
+git stash pop → apply stashed changes and remove stash
+
+git stash list → see all stashes
+
+git cherry-pick commit_hash → apply commit from another branch
+
+git fetch → fetch latest commits from remote without merge
+
+git remote -v → show remote URLs
+
+GitHub commands & tips
+Use GitHub CLI: gh auth login → login
+
+gh repo clone owner/repo → clone GitHub repo
+
+gh pr list → list pull requests
+
+gh pr checkout pr_number → checkout PR branch
+
+gh pr create → create pull request from CLI
+
+Use GitHub Actions for CI/CD automation
+
+Troubleshooting Git issues
+If merge conflict:
+
+run git status → see conflicting files
+
+edit files, fix conflicts
+
+git add fixed_file
+
+git commit → complete merge
+
+If accidentally committed sensitive info:
+
+use git filter-branch or BFG Repo Cleaner to remove
+
+force push with caution: git push --force
+
+If you pushed wrong branch or commits:
+
+git revert or git reset + force push
+
+If repo corrupted or lost history:
+
+try git fsck to check repo integrity
+
+clone fresh copy if possible
+
+If push rejected due to remote changes:
+
+run git pull --rebase to sync local commits on top
+
+resolve conflicts if any
+
+If large files causing issues:
+
+use Git LFS (Large File Storage)
+
+Network issues during clone/push/pull:
+
+check internet, proxy settings
+
+use SSH instead of HTTPS or vice versa
+
+Best practices for DevOps / SRE
+Always pull latest before pushing
+
+Use feature branches for new work
+
+Write clear commit messages
+
+Use tags for releases
+
+Automate PR checks and tests via GitHub Actions
+
+Protect main/master branch with branch rules
+
+Review code via PR before merge
+
+Use .gitignore to exclude unnecessary files
+
+Regularly prune stale branches

@@ -1,0 +1,58 @@
+ssh to instance
+ssh -i yourkey.pem ec2-user@ec2-ip
+(make sure chmod 400 yourkey.pem)
+user: ec2-user / ubuntu / centos depends on AMI
+
+check uptime and load
+uptime
+top or htop
+
+check disk space
+df -h
+du -sh /var/log
+
+check memory usage
+free -m
+
+check top processes
+ps aux --sort=-%mem | head -10
+ps aux --sort=-%cpu | head -10
+
+check network connectivity
+ping -c 4 8.8.8.8 (internet)
+ping -c 4 your-db-host (internal)
+curl -I http://your-app
+
+check open ports
+ss -tuln
+ss -plnt
+
+check firewall
+sudo iptables -L -v -n
+sudo firewall-cmd --list-all
+
+check logs
+sudo tail -100 /var/log/messages
+sudo tail -100 /var/log/syslog
+sudo journalctl -xe
+sudo tail -100 /var/log/your-app.log
+
+restart network if needed
+sudo systemctl restart network
+or
+sudo ifdown eth0 && sudo ifup eth0
+
+restart app/service
+sudo systemctl restart your-app.service
+
+check aws console & cli
+aws console → EC2 → instance status check
+aws ec2 describe-instance-status --instance-ids i-xxxxxxx
+aws ec2 get-console-output --instance-id i-xxxxxxx
+
+check security groups & nacl
+make sure port 22 and app ports open
+
+use session manager if ssh fail
+connect without ssh if key lost or port blocked
+
