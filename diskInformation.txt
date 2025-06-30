@@ -1,0 +1,12 @@
+sudo mount [options] <device> <mount_point>
+//device: the partition you want to mount.
+//mount point: the directory where the device will be mounted
+//options: different mount options that modify the command behaviour
+
+
+  //6. File and Storage Management Tools
+Admins manage filesystems and storage devices using these tools.
+lsblk: Lists information about storage devices and partitions.
+df/du: Monitors disk space usage.
+mount/umount: Mounts and unmounts filesystems.
+rsync: Synchronizes files and directories across systems.
