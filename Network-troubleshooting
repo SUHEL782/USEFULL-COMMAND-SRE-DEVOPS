@@ -1,3 +1,6 @@
+
+# secribe the details service
+kubectl describe svc nginx-service
 #command get the ip
 kubectl get svc
 # used the changes kubernets deployment images 
