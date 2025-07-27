@@ -1,4 +1,6 @@
-
+# jenkins config port number 
+1. /etc/default/jenkins
+2. /lib/systemd/system/jenkins.service
 # secribe the details service
 kubectl describe svc nginx-service
 #command get the ip
