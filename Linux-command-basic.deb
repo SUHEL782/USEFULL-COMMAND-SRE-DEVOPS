@@ -1,5 +1,5 @@
 hostname → show system hostname
-
+//// $env:PATH -split ';'    seee window variable
 uname -r → kernel version
 
 cat /etc/os-release → linux distro info
