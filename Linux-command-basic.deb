@@ -1,3 +1,11 @@
+                  File Permission..
+Simple Permission      →      Advanced Permission
+4 → r  (read)          →      Sticky Bit   (1xxx)
+2 → w  (write)         →      setgid       (2xxx)
+1 → x  (execute)       →      setuid       (4xxx)
+
+
+
 hostname → show system hostname
 //// $env:PATH -split ';'    seee window variable
 uname -r → kernel version
